@@ -1,0 +1,90 @@
+﻿@using PagedList;
+@using PagedList.Mvc;
+@model IPagedList<Fanzin.Entities.ContactUs>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>ContactUs Messages</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+<div class="pagedList" data-fanzin-target="#contactMessages">
+    @Html.PagedListPager(Model, page => Url.Action("index", new { page }),
+    PagedListRenderOptions.ClassicPlusFirstAndLast)
+</div>
+
+
+<table class="table">
+    <tr>
+        <th>
+            Name
+        </th>
+        <th>
+            Email
+        </th>
+        <th>
+            Tel
+        </th>
+        <th>
+            Message
+        </th>
+        <th>
+            Time
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        if (item.Read)
+        {
+            ViewBag.trClass = "TRMessageRead";
+        }
+        else
+        {
+            ViewBag.trClass = "TRMessageNotRead";
+        }
+        <tr class="@ViewBag.trClass">
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Tel)
+            </td>
+            <td>
+                @if (item.Message.Length >= 20)
+                {
+                    @item.Message.Substring(0, 20);@:...
+                }
+                else
+                {
+                    @Html.DisplayFor(modelItem => item.Message)
+                }
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SubmitDateTime)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.ContactUsId }) |
+                @Html.ActionLink("View Message", "Details", new { id = item.ContactUsId }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.ContactUsId })
+            </td>
+        </tr>
+    }
+
+</table>
+
+<hr />
+
+<div class="pagedList" data-fanzin-target="#contactMessages">
+    @Html.PagedListPager(Model, page => Url.Action("index", new { page }),
+    PagedListRenderOptions.ClassicPlusFirstAndLast)
+</div>

@@ -1,0 +1,33 @@
+﻿@model IEnumerable<Fanzin.Entities.CompanyService>
+
+
+
+@foreach (var item in Model)
+{
+    <div class="col-xs-12 col-sm-6 col-lg-4">
+        <div class="services-item">
+            <div class="overlay-container">
+                <img src="../images/ServiceTitleImages/@Html.DisplayFor(modelItem => item.ServicePhotoTitle.FileName)"
+                     class="img-responsive"
+                     alt="@item.ServicePhotoTitle.Title" />
+                <div class="overlay-bottom">
+                    <h2>@Html.DisplayFor(modelItem => item.Name)</h2>
+                </div>
+
+                <a href="/Services/index/@item.CompanyServiceId?Service=@item.Name" class="overlay-link">
+
+                    <i class="fa fa-link"></i>
+
+                </a>
+            </div>
+
+            <h4>@Html.DisplayFor(modelItem => item.BriefDescription)</h4>
+            
+            <div class="services-link">
+                @Html.ActionLink("نمایش جزئیات", "index", "Services", new { id = item.CompanyServiceId, Service = item.Name } ,new { @class = "badge" })
+            </div>
+        </div>
+    </div>
+}
+
+

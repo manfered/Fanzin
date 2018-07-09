@@ -1,0 +1,48 @@
+﻿@model IEnumerable<Fanzin.Entities.SlidePhoto>
+
+@{
+
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Slide.Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FileName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Title)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Slide.Title)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FileName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Title)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.SlidePhotoId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.SlidePhotoId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.SlidePhotoId })
+        </td>
+    </tr>
+}
+
+</table>

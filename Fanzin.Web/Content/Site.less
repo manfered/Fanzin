@@ -1,0 +1,487 @@
+﻿@import url("parameters.less");
+@import "mixins.less";
+
+@font-face {
+    .font-face('IRANSansWeb','/fonts/IRANSansWeb', normal);
+}
+
+@font-face {
+    .font-face('IRANSansWeb','/fonts/IRANSansWeb_Bold', bold);
+}
+
+@font-face {
+    .font-face('IRANSansWeb','/fonts/IRANSansWeb_Light', 300);
+}
+
+body, h1, h2, h3, h4, h5, h6 {
+    font-family: @fontFamilies;
+}
+
+
+html, body {
+    min-height: @fullsize;
+    height: @fullsize;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: @fullsize - (2 * @formElementMargin);
+    width: @fullsize - (2 * @formElementMargin);
+    margin-right: @formElementMargin;
+    margin-left: @formElementMargin;
+}
+
+
+.navbar-inverse .navbar-nav > .active > a, .navbar-inverse .navbar-nav > .active > a:hover, .navbar-inverse .navbar-nav > .active > a:focus {
+    color: @mainColor;
+    background-color: transparent;
+}
+
+.navbar-inverse .navbar-nav > li > a:focus {
+    color: @navbarLinkDefaultColor;
+}
+
+.navbar-collapse {
+    direction: @siteDirection;
+}
+
+@media (min-width: @smSize) {
+    .navbar-nav > li {
+        float: right;
+    }
+}
+
+
+
+.linkDisabled {
+    color: currentColor;
+    cursor: not-allowed;
+    opacity: 0.5;
+    text-decoration: none;
+}
+
+.navbar {
+    margin-bottom: 0px;
+    padding: 30px 15px;
+    .itemTransition(all, 0.5s);
+}
+
+@media (max-width:405px) {
+    .navbar-header {
+        position: relative;
+    }
+
+    .navbar img {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+        width: 70%;
+    }
+}
+
+.navbar-inverse .navbar-nav > li > a {
+    font-weight: bold;
+    font-size: @navbarFontSize;
+    margin: 0px 6px;
+    color: @navbarLinkDefaultColor;
+
+    &:hover {
+        color: @efectiveColor;
+    }
+}
+
+.cbp-af-header-shrink {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    opacity: 0.9;
+}
+
+.fill-screen {
+    background-color: @mainColor;
+}
+
+.row {
+    margin: @bootstrapRowMargin;
+}
+
+.carousel {
+    height: @slideCarouselSize;
+}
+
+.carousel-inner {
+    height: @fullsize;
+
+    .item {
+        height: @fullsize;
+        .carousel-background-item();
+
+        img {
+            height: @fullsize;
+            max-width: none;
+        }
+    }
+}
+
+.welcome-screen-parent {
+    position: relative;
+    height: @fullsize - @slideCarouselSize;
+    text-align: center;
+    color: @efectiveColor;
+}
+
+.welcome-screen-child {
+    .centerChildInsideParent();
+
+    .badge {
+        .badgeStyling();
+        background-color: @efectiveColor;
+        color: @mainColor;
+
+        &:hover {
+            color: gray;
+        }
+    }
+
+    h1 {
+        font-size: @TitleFontSize;
+    }
+
+    h2 {
+        font-size: @MajorFontSize - 2px;
+    }
+}
+
+
+.container-screen-background {
+    position: relative;
+    .screen-background();
+    min-height: @fullsize;
+    padding-bottom: 141px;
+}
+
+#services, #aboutus, #contactus {
+    margin-top: @segmentsMarginTop;
+}
+
+.spacer-div {
+    min-height: @spacerHeight;
+    background-color: transparent;
+}
+
+.services-row {
+    padding-top: 30px;
+    padding-bottom: 5px;
+    background-color: @efectiveColor;
+}
+
+.services-item {
+    text-align: center;
+    .item-shadow();
+    padding-bottom: 20px;
+
+    h4 {
+        font-size: @serviceItemNameFontSize;
+        margin-left: 5px;
+        margin-right: 5px;
+    }
+}
+
+
+
+
+/* columns of same height styles */
+.services-item {
+    position: relative;
+    padding-bottom: 80px;
+    margin-bottom: 20px;
+}
+
+@media (min-width: @smSize) {
+    .services-item {
+        height: @serviceItemHeight;
+        padding-bottom: 80px;
+    }
+}
+
+@media (min-width: @mdSize) {
+    .services-item {
+        height: @serviceItemHeight + 50px;
+    }
+}
+
+@media (min-width: @lgSize) {
+    .services-item {
+        height: @serviceItemHeight;
+    }
+}
+
+@media (min-width: @XlgSize) {
+    .services-item {
+        height: @serviceItemHeight + 80px;
+    }
+}
+
+.overlay-container {
+    position: relative;
+    display: block;
+    text-align: center;
+    overflow: hidden;
+    margin-bottom: 25px;
+
+    img {
+        width: @fullsize;
+    }
+}
+
+
+
+.overlay-bottom {
+    .positionAbsoluteHorizontalCentering();
+    top: auto;
+    padding: 25px;
+    bottom: 0px;
+    background-color: @portionBackgroundColor;
+    overflow: hidden;
+    z-index: 99;
+
+    H2 {
+        font-size: @MajorFontSize;
+        font-weight: 700;
+        color: @efectiveColor;
+    }
+}
+
+.overlay-link {
+    .positionAbsoluteHorizontalCentering();
+    top: 0;
+    width: @fullsize;
+    height: @fullsize;
+    opacity: 0.0;
+    background-color: fade(@mainColor, @serviceOverlayFade);
+
+    i {
+        .itemTransition(all, 0.2s, ease-in-out);
+        width: @linkOverlayIconSize;
+        height: @linkOverlayIconSize;
+        border: 1px solid @efectiveColor;
+        .roundingByRadius();
+        color: @efectiveColor;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin: -40px 0 0 -40px;
+        font-size: 32px;
+        line-height: @linkOverlayIconSize;
+
+        &:hover {
+            background-color: fade(@mainColor, @serviceIOverlayFade);
+        }
+    }
+
+    &:hover {
+        .itemTransition(all, 0.2s, ease-in-out);
+        opacity: 1.0;
+    }
+}
+
+
+
+.services-link {
+    .positionAbsoluteHorizontalCentering();
+    bottom: 20px;
+    text-align: center;
+
+    .badge {
+        .badgeStyling();
+        background-color: @mainColor;
+        color: @efectiveColor;
+    }
+}
+
+
+
+.aboutus-portion {
+    background-color: @portionBackgroundColor;
+}
+
+.aboutus-body {
+    direction: @siteDirection;
+    text-align: center;
+    padding: 15px;
+    color: @efectiveColor;
+
+    img {
+        margin-bottom: 20px;
+        max-width: @fullsize;
+    }
+
+    ol {
+        list-style-position: inside;
+
+        li {
+            font-family: @fontFamilies;
+        }
+    }
+}
+
+.members-portion {
+    background-color: @effectiveSecondeBackgroundColor;
+    text-align: center;
+}
+
+
+.member-profile {
+    height: @fullsize;
+    background-color: @effectiveSecondeBackgroundColor;
+    padding-top: @memberProfilePadding;
+    padding-bottom: @memberProfilePadding;
+    text-align: center;
+}
+
+.member-carousel-inner {
+    .item {
+        img {
+            height: @memberProfilePhotoHeight;
+            display: inline;
+        }
+    }
+}
+
+
+.contactus-portion {
+    background-color: @portionBackgroundColor;
+    min-height: @contactUsPortionHeight;
+}
+
+.contactus-body {
+    text-align: center;
+    padding: 15px;
+    color: @efectiveColor;
+}
+
+.fa-envelope:before {
+    cursor: pointer;
+}
+
+.callus > a {
+    display: block;
+    margin-bottom: 20px;
+    color: @efectiveColor;
+
+    &:hover {
+        color: @mainColor;
+    }
+}
+
+.callus > a.tel-number, a.email-address {
+    text-decoration: none;
+    font-size: @MajorFontSize;
+    font-weight: bold;
+}
+
+.callus > a.email-address {
+    color: @mainColor;
+}
+
+
+
+/*contact us expand collaps toggle */
+.contactus-form-section {
+    overflow: hidden;
+    .itemTransition(max-height, 1.3s, ease-in);
+    height: auto;
+    max-height: @contactUsPortionHeight + 100px;
+    background-color: @effectiveThirdBackgroundColor;
+    text-align: center;
+}
+
+.contactus-form-section.collapsed {
+    max-height: 0;
+}
+
+.contactus-form-section .form-control {
+    text-align: @formControlTextAlign;
+}
+
+.contactus-form-section textarea {
+    text-align: @formControlTextAlign;
+}
+
+.form-horizontal {
+    h4 {
+        margin-top: 30px;
+    }
+}
+
+a.address {
+    text-decoration: none;
+    font-size: @MajorFontSize;
+    font-weight: bold;
+}
+
+footer {
+    .positionAbsoluteHorizontalCentering();
+    bottom: 0;
+    height: 30px;
+    padding: 5px;
+    text-align: center;
+    background-color: @effectiveSecondeBackgroundColor;
+    font-weight: bold;
+}
+
+.services-details-container {
+    margin-top: 181px;
+    padding: @servicesDetailsContainerPadding;
+    background-color: @effectiveThirdBackgroundColor;
+    direction: @siteDirection;
+    color: rgb(226, 226, 226);
+}
+
+.service-description {
+    margin-right: @serviceDescriptionMargin;
+    margin-left: @serviceDescriptionMargin;
+
+    h1 {
+        color: @efectiveColor;
+        font-size: @TitleFontSize;
+        text-align: center;
+    }
+
+    h2 {
+        color: @efectiveColor;
+        font-size: @MajorFontSize;
+    }
+}
+
+.fa-envelope-default:before {
+    cursor: default;
+}
+
+#address-container {
+    margin-top: 50px;
+}
+
+@media (min-width: @smSize) {
+    .form-horizontal .control-label {
+        text-align: left;
+    }
+}
+
+#contactus-response-success {
+    height: @contactUsPortionHeight;
+    position: relative;
+}
+
+#reply-portion {
+    .centerChildInsideParent();
+}

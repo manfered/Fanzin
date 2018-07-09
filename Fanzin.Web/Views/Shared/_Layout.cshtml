@@ -1,0 +1,66 @@
+﻿<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>@ViewBag.Title - Fanzin.ir</title>
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    @Styles.Render("~/Content/preCss")
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+</head>
+<body>
+
+    <header id="top">
+        <nav class="navbar navbar-inverse navbar-fixed-top cbp-af-header"
+             role="navigation"
+             aria-label="site"> 
+            <div class="container-fluid">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed"
+                            data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a href="#top">
+                        <img src="/images/Site/Fanzin_logo.png" alt="Fanzin Logo" />
+                    </a>
+                </div>
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a class="navbar-link-href" href="#top">خانه</a></li>
+                        <li><a class="navbar-link-href" href="#services">خدمات</a></li>
+                        <li><a class="navbar-link-href" href="#aboutus">درباره ما</a></li>
+                        <li><a class="navbar-link-href" href="#contactus">ارتباط با ما</a></li>
+                    </ul>
+                </div><!-- /.navbar-collapse -->
+            </div><!-- /.container-fluid -->
+        </nav>
+    </header>
+
+    <div class="container-fluid container-screen-background"
+         style="background-image: url(/images/Site/Fanzin-Backgorund.jpg)">
+        @RenderBody()
+
+        <footer>
+            &copy; @DateTime.Now.Year - Fanzin.ir
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/navAnim")
+    @Scripts.Render("~/bundles/easing")
+    @Scripts.Render("~/bundles/nanoGallery")
+    @Scripts.Render("~/bundles/scrolling")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

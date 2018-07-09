@@ -1,0 +1,9 @@
+﻿@model IEnumerable<Fanzin.Entities.AboutUs>
+
+
+<img src="/images/Site/Fanzin_logo.png" alt="Fanzin Logo" />
+
+@foreach (var item in Model) {
+    @Html.Raw(item.description)
+}
+

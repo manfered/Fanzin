@@ -1,0 +1,61 @@
+﻿@model Fanzin.Entities.ContactUs
+
+
+@using (Ajax.BeginForm("Create", "ContactUS", null, new AjaxOptions() { HttpMethod = "POST" }, new { enctype = "multipart/form-data" , @id = "contactForm" }))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>فرم ارتباط با ما</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            <label class="control-label col-md-2 col-md-push-10">نام</label>
+            <div class="col-md-10 col-md-pull-2">
+                @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2 col-md-push-10">پست الکترونیکی</label>
+            <div class="col-md-10 col-md-pull-2">
+                @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2 col-md-push-10">شماره تماس</label>
+            <div class="col-md-10 col-md-pull-2">
+                @Html.EditorFor(model => model.Tel, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Tel, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2 col-md-push-10">پیغام</label>
+            <div class="col-md-10 col-md-pull-2">
+                @Html.TextAreaFor(model => model.Message, 10, 100, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Message, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <div class="col-md-offset-5 col-md-2">
+                <input type="submit" value="ارسال پیغام" class="btn btn-danger" />
+            </div>
+        </div>
+    </div>
+}
+
+<div id="contactus-response-success">
+    <div id="reply-portion">
+        <i class="fa fa-reply-all fa-7x"></i>
+        <p>پیغام شما با موفقیت ارسال شد. در اسرع وقت نسبت به پاسخگویی اقدام خواهد گردید</p>
+    </div>
+</div>
+
+
+

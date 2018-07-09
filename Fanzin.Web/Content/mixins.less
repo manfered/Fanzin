@@ -1,0 +1,65 @@
+﻿.font-face(@font-family, @filepath, @font-weight) {
+    font-family: @font-family;
+    src: url('@{filepath}.eot');
+    src: url('@{filepath}.eot?#iefix') format('embedded-opentype'), url('@{filepath}.woff') format('woff'), url('@{filepath}.ttf') format('truetype');
+    font-weight: @font-weight;
+}
+
+.carousel-background-item() {
+    background-repeat: no-repeat;
+    background-position: center 0px;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.screen-background() {
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.item-shadow() {
+    -moz-box-shadow: 3px 5px 10px 1px #ccc;
+    -webkit-box-shadow: 3px 5px 10px 1px #ccc;
+    box-shadow: 3px 5px 10px 1px #ccc;
+}
+
+.itemTransition(@item, @duration, @effect) {
+    -webkit-transition: @item @duration @effect;
+    -o-transition: @item @duration @effect;
+    transition: @item @duration @effect;
+}
+
+.itemTransition(@item, @duration) {
+    -webkit-transition: @item @duration;
+    -o-transition: @item @duration;
+    transition: @item @duration;
+}
+
+.centerChildInsideParent() {
+    position: relative;
+    top: 50%;
+    transform: translateY(-70%);
+}
+
+.roundingByRadius() {
+    -webkit-border-radius: 100%;
+    -moz-border-radius: 100%;
+    border-radius: 100%;
+}
+
+.badgeStyling() {
+    border: none;
+    border-radius: 300px;
+    padding: 1rem 2rem;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.positionAbsoluteHorizontalCentering(){
+    position: absolute;
+    left: 0;
+    right: 0;
+}

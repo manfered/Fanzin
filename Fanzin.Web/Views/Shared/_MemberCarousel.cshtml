@@ -1,0 +1,37 @@
+﻿@model IEnumerable<Fanzin.Entities.CompanyMember>
+@{ 
+    var memberSlideClass = "item active";
+}
+
+<div id="carousel-members" class="carousel slide" data-ride="carousel">
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner member-carousel-inner" role="listbox">
+
+        @foreach (var item in Model)
+            {
+            <div class="@memberSlideClass member-profile">
+
+                @if (item.CompanyMemberPhoto != null)
+                {
+                    <img src="~/images/MemberImages/@item.CompanyMemberPhoto.FileName"
+                         class="img-circle"
+                         alt="@item.Name" />
+
+                }
+
+                <h3>@item.Name</h3>
+                <h4>@item.JobTitle</h4>
+                <h5>@item.Message</h5>
+                <a class="btn btn-default" href="@item.ContactURL" target="_blank">Contact</a>
+
+            </div>
+
+            memberSlideClass = "item";
+        }
+
+    </div>
+    <!-- Controls -->
+</div>
+
+
+

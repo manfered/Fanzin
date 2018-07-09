@@ -1,0 +1,42 @@
+﻿@model Fanzin.Entities.CompanyService
+
+@{
+    ViewBag.Title = "Fanzin.ir " + Model.Name;
+}
+
+
+<main class="row">
+    <div class="services-details-container">
+        <article>
+            <section class="service-description">
+                <h1>@Html.DisplayFor(model => model.Name)</h1>
+                <h2>@Html.DisplayFor(model => model.BriefDescription)</h2>
+                <p>@Html.Raw(Model.FullDescription)</p>
+            </section>
+            <section class="row">
+                <div id="nanoGallery3">
+
+                    @foreach (var modelItem in Model.CompanyServicePhoto)
+                    {
+                        var thumbnailHref = Path.GetFileNameWithoutExtension(@modelItem.FileName) + "_thumbnail" + Path.GetExtension(@modelItem.FileName);
+                        <a href="/images/ServiceImages/@modelItem.FileName"
+                           data-ngthumb="/images/ServiceImages/@thumbnailHref"
+                           data-ngdesc="@modelItem.Title">@modelItem.Title</a>
+                    }
+                </div>
+            </section>
+        </article>
+    </div>
+</main>
+
+@section Scripts {
+
+    <script>
+
+        $('.navbar-link-href').each(function () {
+            $(this).attr('href', "/" + $(this).attr('href'));
+        });
+
+    </script>
+
+}

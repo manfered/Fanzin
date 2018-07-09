@@ -1,0 +1,80 @@
+﻿@model IEnumerable<Fanzin.Entities.CompanyMember>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.CompanyMemberPhoto.FileName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.JobTitle)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Message)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ContactURL)
+        </th>
+        <th>
+            Member photo
+        </th>
+        <th>
+            Company Member
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.CompanyMemberPhoto.FileName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.JobTitle)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Message)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ContactURL)
+        </td>
+        <td>
+
+
+            @if (item.CompanyMemberPhoto != null)
+                {
+                <span class="linkDisabled">Create</span> @: |
+                @Html.ActionLink("Edit", "Edit", "CompanyMemberPhotoes", new { id = item.CompanyMemberId }, null) @: |
+                @Html.ActionLink("Delete", "Delete", "CompanyMemberPhotoes", new { id = item.CompanyMemberId }, null)
+            }
+            else
+            {
+                @Html.ActionLink("Create", "Create", "CompanyMemberPhotoes", new { id = item.CompanyMemberId }, null) @: |
+                <span class="linkDisabled">Edit</span> @: |
+                <span class="linkDisabled">Delete</span>
+            }
+
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.CompanyMemberId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.CompanyMemberId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.CompanyMemberId })
+        </td>
+    </tr>
+}
+
+</table>

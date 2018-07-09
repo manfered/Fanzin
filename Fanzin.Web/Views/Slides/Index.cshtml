@@ -1,0 +1,70 @@
+﻿@model IEnumerable<Fanzin.Entities.Slide>
+
+@{
+
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.SlidePhoto.FileName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Description)
+        </th>
+        <th>
+            Slide Photo
+        </th>
+        <th>
+            Slide
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.SlidePhoto.FileName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Title)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Description)
+        </td>
+        <td>
+
+            @if (item.SlidePhoto != null)
+                {
+                <span class="linkDisabled">Create</span> @: |
+                @Html.ActionLink("Edit", "Edit", "SlidePhotos", new { id = item.SlideId }, null) @: |
+                @Html.ActionLink("Delete", "Delete", "SlidePhotos", new { id = item.SlideId }, null)
+            }
+            else
+            {
+                @Html.ActionLink("Create", "Create", "SlidePhotos", new { id = item.SlideId }, null) @: |
+                <span class="linkDisabled">Edit</span> @: |
+                <span class="linkDisabled">Delete</span>
+            }
+
+
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.SlideId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.SlideId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.SlideId })
+        </td>
+    </tr>
+}
+
+</table>

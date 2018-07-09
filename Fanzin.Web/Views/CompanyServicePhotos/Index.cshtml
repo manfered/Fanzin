@@ -1,0 +1,55 @@
+﻿@model IEnumerable<Fanzin.Entities.CompanyServicePhoto>
+
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+
+<p>
+    @Html.ActionLink("Create New", "Create", new { id = ViewBag.CompanyServiceId })
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.FileName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Title)
+        </th>
+        <th></th>
+    </tr>
+
+    @if (Model != null)
+    {
+
+        foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FileName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Title)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.CompanyServicePhotoId , companyServiceId = ViewBag.CompanyServiceId }, null) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.CompanyServicePhotoId , companyServiceId = ViewBag.CompanyServiceId }, null )
+                </td>
+            </tr>
+        }
+
+
+
+    }
+
+
+
+</table>
+
+<div>
+    @Html.ActionLink("Back to List", "Index", "CompanyServices")
+</div>

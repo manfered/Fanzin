@@ -1,0 +1,53 @@
+﻿@model Fanzin.Entities.CompanyService
+
+@{
+
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>CompanyService</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ServicePhotoTitle.FileName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ServicePhotoTitle.FileName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BriefDescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BriefDescription)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FullDescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FullDescription)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.CompanyServiceId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

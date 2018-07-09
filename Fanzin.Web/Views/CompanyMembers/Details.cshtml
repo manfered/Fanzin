@@ -1,0 +1,59 @@
+﻿@model Fanzin.Entities.CompanyMember
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>CompanyMember</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.CompanyMemberPhoto.FileName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CompanyMemberPhoto.FileName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.JobTitle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.JobTitle)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Message)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Message)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ContactURL)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ContactURL)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.CompanyMemberId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
