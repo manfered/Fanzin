@@ -146,6 +146,7 @@ textarea {
         .badgeStyling();
         background-color: @efectiveColor;
         color: @mainColor;
+        font-size: 3vh;
 
         &:hover {
             color: gray;
@@ -154,13 +155,18 @@ textarea {
 
     h1 {
         font-size: @TitleFontSize;
+        font-size: 3vh;
+        margin-top: 2vh;
+        margin-bottom: 2vh;
     }
 
     h2 {
         font-size: @MajorFontSize - 2px;
+        font-size: 2vh;
+        margin-top: 2vh;
+        margin-bottom: 2vh;
     }
 }
-
 
 .container-screen-background {
     position: relative;
@@ -193,6 +199,7 @@ textarea {
         font-size: @serviceItemNameFontSize;
         margin-left: 5px;
         margin-right: 5px;
+        line-height: 24px;
     }
 }
 
@@ -221,7 +228,7 @@ textarea {
 
 @media (min-width: @lgSize) {
     .services-item {
-        height: @serviceItemHeight;
+        height: @serviceItemHeight + 14px;
     }
 }
 
@@ -319,16 +326,20 @@ textarea {
     text-align: center;
     padding: 15px;
     color: @efectiveColor;
+    font-size: 20px;
+
+    p{
+        font-family: @fontFamilies;
+    }
 
     img {
         margin-bottom: 20px;
         max-width: @fullsize;
     }
 
-    ol {
-        list-style-position: inside;
-
-        li {
+    ol, ul {
+        text-align:right;
+        li{
             font-family: @fontFamilies;
         }
     }
